@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int dsu[100000];
+int sz[100000];
+void make(int n)
+{
+    for (int i=0;i<=n;i++){
+        dsu[i]=i;
+        sz[i]=1;
+    }
+}
+int find_parent(int n)
+{
+    if (dsu[n]==n) return n;
+    return dsu[n] = find_parent(dsu[n]);
+}
+void unite(int a,int b)
+{
+    a=find_parent(a);
+    b=find_parent(b);
+    if (a!=b){
+        if (b<a) swap(a,b);
+        dsu[b]=a;
+    }
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    make(n);
+    for (int i=0;i<k;i++){
+        int a,b;
+        cin>>a>>b;
+        unite(a,b);
+    }
+}
