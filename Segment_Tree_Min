@@ -14,6 +14,18 @@ void build(int idx, int b, int e)
     build(right,mid+1,e);
     tree[idx]=min(tree[left],tree[right]);
 }
+void update(int idx, int b, int e, int pos, int value)
+{
+	if (pos<b || e<pos) return;
+	if (b==e && b==pos){
+		tree[idx]=value;
+		return;
+	}
+	int mid=(b+e)/2,left=idx*2,right=idx*2+1;
+	update(left,b,mid,pos,value);
+	update(right,mid+1,e,pos,value);
+	tree[idx]=min(tree[left],tree[right]);
+}
 int query(int idx, int b, int e, int l, int r)
 {
     if (r<b || e<l) return INT_MAX;
@@ -33,8 +45,9 @@ int main()
     for (int i=1;i<=n;i++) cin>>arr[i];
     build(1,1,n);
     while(q--){
-        int a,b;
-        cin>>a>>b;
-        cout<<query(1,1,n,a,b)<<endl;
+        int a,b,c;
+        cin>>a>>b>>c;
+        if (a==2) cout<<query(1,1,n,b,c)<<endl;
+        else update(1,1,n,b,c);
     }
 }
