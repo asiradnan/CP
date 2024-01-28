@@ -13,7 +13,7 @@ int main()
 		int l,r,value;
 		cin>>l>>r>>value;
 		difference_array[l-1]+=value;
-		if (r<n) arr[r]-=value;
+		if (r<n) difference_array[r]-=value;
 	}
 	for (int i=1;i<n;i++) difference_array[i]+=difference_array[i-1];
 	ll prefix_sum[n+1];
