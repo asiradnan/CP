@@ -24,3 +24,7 @@ v.size(); //returns the first element
 v.pop_back(); //O(1) //deletes last element
 v.erase(v.begin()+5); //O(n) //deletes 6th element
 v.clear(); //O(n) //deletes the vector even makes size to 0
+
+//Sorting
+sort(v.begin(),v.end()); //ascending order
+sort(v.rbegin(),v.rend()); //descending order
