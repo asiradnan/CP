@@ -12,13 +12,13 @@ v.front() //O(1) returns the first element
 v.back() //O(1) returns the last element
 for (auto it = v.begin(); it != v.end(); it++) cout << ' ' << *it;
 for (int i=0;i<v.size();i++) cout<<v[i]
-for (auto it = myvector.rbegin(); it!= myvector.rend(); rit++) cout << ' ' << *it;
+for (auto it = v.rbegin(); it!= v.rend(); it++) cout << ' ' << *it;
 
 //Size:
-myvector.resize(5); //current elements thik rekhe size 5 kore dibe
-myvector.resize(8,100); //jodi size bare, new elements gula 100 hobe
-v.empty(); //returns true if the size is 0 //declared with a size er khetre false return korbe
-v.size(); //returns the first element
+v.resize(5); //current elements thik rekhe size 5 kore dibe
+v.resize(8,100); //jodi size bare, new elements gula 100 hobe
+v.empty(); //O(1) //returns true if the size is 0 //declared with a size er khetre false return korbe
+v.size(); //O(1) //returns the size
 
 //Deletion:
 v.pop_back(); //O(1) //deletes last element
