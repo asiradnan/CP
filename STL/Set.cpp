@@ -16,7 +16,7 @@ for (auto it = st.rbegin(); it!= st.rend(); rit++) cout << ' ' << *it;
 
 //Size:
 st.empty(); //O(1) //returns true if the size is 0 //declared with a size er khetre false return korbe
-st.size(); //O(1) //returns the first element
+st.size(); //O(1) //returns size
 
 //Deletion:
 st.erase (it); //O(1)
@@ -25,6 +25,4 @@ auto it = myset.find (60);
 st.erase (it, st.end()); //O(n)
 st.clear(); //O(n) //deletes the set and makes size to 0
 
-//Sorting
-sort(st.begin(),st.end()); //ascending order
-sort(st.rbegin(),st.rend()); //descending order
+//Already Sorted
