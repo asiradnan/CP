@@ -17,10 +17,10 @@ for (auto it = myvector.rbegin(); it!= myvector.rend(); rit++) cout << ' ' << *i
 //Size:
 myvector.resize(5); //current elements thik rekhe size 5 kore dibe
 myvector.resize(8,100); //jodi size bare, new elements gula 100 hobe
-v.empty() //returns true if the size is 0 //declared with a size er khetre false return korbe
-v.size() //returns the first element
+v.empty(); //returns true if the size is 0 //declared with a size er khetre false return korbe
+v.size(); //returns the first element
 
 //Deletion:
 v.pop_back(); //O(1) //deletes last element
-v.erase(v.begin()+5)) //deletes 6th element
-v.clear() //O(n) //deletes the vector even makes size to 0
+v.erase(v.begin()+5); //O(n) //deletes 6th element
+v.clear(); //O(n) //deletes the vector even makes size to 0
