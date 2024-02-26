@@ -1,0 +1,5 @@
+Add : (a+b)%m;
+Sub : (((a-b)%m)+m)%m;
+Mul: (a*b)%m;
+
+
