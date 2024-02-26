@@ -1,0 +1,66 @@
+//Odd check
+if (a&1) cout<<a<<" is odd"<<endl;
+else cout<<a<<" is even"<<endl;
+
+//Power of 2 or not
+if (n&(n-1)) cout<<"Not a power of 2";
+    else cout<<"Power of 2";
+
+//Get ith bit
+int getIthBit(int n, int i)
+{
+ 	return (n & (1<<i)) ? 1 : 0;
+}
+//Set ith bit
+int setIthBit(int n, int i)
+{
+ 	return (n | (1<<i));
+}
+
+//Unset ith bit
+int unsetIthBit(int n, int i)
+{
+ 	return (n & ~(1<<i));
+}
+
+//Unset last I bits
+int unsetLastIBits(int n, int i)
+{
+ 	return (n & (-1<<i));
+}
+
+//Unset range bits
+int unsetRangeBits(int n, int i, int j)
+{
+	int a = (-1)<<j+1;
+	int b = (1<<i) - 1;
+ 	return (n & (a|b));
+}
+
+//Update ith bit
+int updateIthBit(int n, int i,int v)
+{
+	n = (n & ~(1<<i));
+ 	return (n | (v<<i));
+}
+
+//replace bits
+
+//counting bits
+int n=7,c=0;
+while(n){
+  if (n&1) c++;
+  n>>=1;
+}
+cout<<c<<endl;
+
+//Binary representation
+int n=8;
+string s="";
+while(n){
+  if (n&1) s+='1';
+  else s+='0';
+  n>>=1;
+}
+reverse(s.begin(),s.end());
+cout<<s<<endl;
