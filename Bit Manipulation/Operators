@@ -1,0 +1,15 @@
+&  : AND  
+|  : OR
+^  : XOR
+~  : 1's complement
+<< : left shift
+>> : right shift
+& = Duita ta 1 hole 1
+| = Ekta ta 1 holei 1
+^ = Duita same hole 0, na hole 1
+~ = flips all the bits(INCLUDING SIGN BIT) 
+<< = equivalent to multiplying by 2 to the power of (number of shifts) [a << b = a*(2^b)]
+>> = equivalent to dividing by 2 to the power of (number of shifts) [a >> b = a/(2^b)]
+
+//নেগেটিভ নাম্বারে সাইন বিটের পরের বিট গুলা 2's complement আকারে থাকে। এটার সাধারণ বাইনারি ফর্ম আনতে হলে 2's complement এর সবগুলা বিটকে ফ্লিপ করে তার সাথে ১ যোগ করতে হবে। 
+//সাইন বিট 0 মানে পজিটিভ, 1 মানে নেগেটিভ। 
