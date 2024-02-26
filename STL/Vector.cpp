@@ -19,6 +19,7 @@ v.resize(5); //current elements thik rekhe size 5 kore dibe
 v.resize(8,100); //jodi size bare, new elements gula 100 hobe
 v.empty(); //O(1) //returns true if the size is 0 //declared with a size er khetre false return korbe
 v.size(); //O(1) //returns the size
+v.reserve(n) //will reserve n length for you and you can go on pushing back from first index
 
 //Deletion:
 v.pop_back(); //O(1) //deletes last element
