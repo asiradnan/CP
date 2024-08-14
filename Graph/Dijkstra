@@ -1,42 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-using ll=long long;
-
-int main()
+using ll = long long;
+vector <ll> dijkstra(int V, vector<vector<int>> adj[], int S)
 {
+    vector<ll> distances(V,1e18);
+    priority_queue<pair<ll,int>,vector<pair<ll,int>>,greater<pair<ll,int>>> pq;
+    pq.push({0,S});
+    distances[S]=0;
+    while(pq.size()) {
+        pair<ll,int> p = pq.top();
+        pq.pop();
+        if (distances[p.second]<p.first) continue;
+        for (vector<int> v: adj[p.second]) {
+            if (distances[p.second]+v[1]<distances[v[0]]) {
+              distances[v[0]]=distances[p.second]+v[1];
+              pq.push({distances[v[0]],v[0]});
+          }
+        }
+      }
+      return distances;
+}
+void solve() {
+    int v,e;
+    cin>>v>>e;
+    vector<vector<int>> adj[v+1];
+    while(e--) {
+        int a,b,c;
+        cin>>a>>b>>c;
+        adj[a].push_back({b,c});
+    }
+    vector<ll> ans = dijkstra(v+1,adj,1);
+    ans.erase(ans.begin());
+    for (ll i:ans) cout<<i<<' ';
+    cout<<endl;
+}
+
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    
-    int n,m;
-    cin>>n>>m;
-    vector<pair<int,int>> V[n+1];
-    while(m--){
-    	int a,b,c;
-    	cin>>a>>b>>c;
-    	V[a].push_back({b,c});
-    }
-	set<pair<ll,ll>> st;
-	vector<ll> dist(n+1,1e18);
-	vector<bool> visited(n+1);
-	int source=1;
-	//cin>>source;
-	dist[source]=0;
-	st.insert({0,source});
-	while(!st.empty()){
-		pair<ll,ll> p=*st.begin();
-		st.erase(st.begin());
-		if (dist[p.second]<p.first) continue;
-		visited[p.second]=true;
-		for (auto i: V[p.second]){
-			if (!visited[i.first]){
-				if (dist[i.first]>(dist[p.second]+i.second)) dist[i.first]=dist[p.second]+i.second;
-				st.insert({dist[i.first],i.first});
-			}	
-		}
-		
-	}
-	for (int i=1;i<=n;i++) cout<<dist[i]<<' ';
-	cout<<endl;
+
+    int t = 1;
+    // cin >> t;
+
+    while (t--) solve();
+    // for (int i=1;i<=t;i++) {cout<<"Case "<<i<<": "; solve();}
 }
