@@ -1,0 +1,39 @@
+int dsu[1001];
+
+void make(int n)
+{
+  for (int i=0;i<n;i++) dsu[i]=i;
+}
+
+int find_parent(int x)
+{
+  if (dsu[x]==x) return x;
+  return dsu[x]=find_parent(dsu[x]);
+}
+void unite(int x, int y)
+{
+  x = find_parent(x);
+  y = find_parent(y);
+  dsu[x]=y;
+}
+
+
+int spanningTree(int V, vector<vector<int>> adj[])
+{
+    make(V);
+    map<int,vector<pair<int,int>>> mp;
+    for (int i=0;i<V;i++) {
+      for (auto v:adj[i])
+      mp[v[1]].push_back({i,v[0]});
+    }
+    int ans=0;
+    for (auto p:mp) {
+      for (auto v:p.second) {
+        if (find_parent(v.first)!=find_parent(v.second)) {
+          ans+=p.first;
+          unite(v.first,v.second);
+        }
+      }
+    }
+    return ans;
+}
