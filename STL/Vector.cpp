@@ -3,6 +3,7 @@ vector<int> first;                                // empty vector of ints
 vector<int> second (4,100);                       // four ints with value 100
 vector<int> third (second.begin(),second.end());  // iterating through second
 vector<int> fourth (third);                       // a copy of third
+vector<vector<ll>> v(n+1,vector<ll> (n,1e17));    //2D vector of n*n with all the values of -1
 
 //Insertion:
 v.push_back(5); //O(1)
