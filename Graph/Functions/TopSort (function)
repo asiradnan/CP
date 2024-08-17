@@ -1,0 +1,22 @@
+stack<int> sk, ans;
+
+void dfs(int i, vector<bool> &vis, vector<int> adj[]) {
+    vis[i] = true;
+    sk.push(i);
+    for (int j: adj[i]) {
+        if (!vis[j]) dfs(j, vis, adj);
+    }
+    ans.push(sk.top());
+    sk.pop();
+}
+
+vector<int> topoSort(int V, vector<int> adj[]) {
+    vector<bool> vis(V);
+    for (int i = 0; i < V; i++) if (!vis[i]) dfs(i, vis, adj);
+    vector<int> final;
+    while (ans.size()) {
+        final.push_back(ans.top());
+        ans.pop();
+    }
+    return final;
+}
