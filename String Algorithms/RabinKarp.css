@@ -1,0 +1,23 @@
+int md = 1e9+7;
+vector<int> search(string &pattern, string &text)
+{
+	int t = text.size();
+	int pt = pattern.size();
+	vector<long long> p(pt);
+	p[0] = 1;
+	for (int i = 1; i < pt; i++) p[i] = (p[i - 1] * 26) % md;
+	long long p_h = 0, cur = 0;
+	for (int i = 0; i < pt; i++) {
+		p_h = (p_h * 26 + (pattern[i] - 'a' + 1)) % md;
+		cur  = (cur * 26 + (text[i] - 'a' + 1)) % md;
+	}
+	vector<int> ans;
+	if (cur == p_h) ans.push_back(1);
+	for (int i = 1; i+pt <= t; i++) {
+		cur = (cur - (text[i - 1] - 'a' + 1) * p[pt-1]) % md;
+		if (cur < 0) cur += md;
+		cur = (cur * 26 + ( text[i + pt -1 ] - 'a' + 1)) % md;
+		if (cur == p_h) ans.push_back(i +1 );
+	}
+	return ans;
+}
