@@ -1,28 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
+using ll = long long;
+template<typename T>
 
-void solve()
-{
-	int n;
-	cin>>n;
-	ll arr[n];
-	for (int i=0;i<n;i++) cin>>arr[i];
-	ll ans=0;
-	for (int i=0;i<n;i++){
-
-	}
-	cout<<ans<<endl;
+void asirprint(vector<T> &v) {
+    int n = v.size();
+    for (int i = 0; i < n; i++) cout << v[i] << ' ';
+    cout << endl;
 }
 
-int main()
-{
-    ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+void solve() {
+    int n;
+    cin >> n;
+    ll arr[n];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    ll ans = 0;
+    for (int i = 0; i < n; i++) {
+    }
+    cout << ans << endl;
+}
 
-    int t=1;
-    cin>>t;
-    
-    while(t--) solve();
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t = 1;
+    cin >> t;
+
+    while (t--) solve();
     // for (int i=1;i<=t;i++) {cout<<"Case "<<i<<": "; solve();}
 }
-
